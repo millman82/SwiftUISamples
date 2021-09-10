@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var value = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack(alignment: .leading) {
+            Text("Hello, world!")
+            TextField("Enter 10 characters or less", text: $value)
+                .validated(isValid: {
+                    value.count < 11
+                    
+                }, validationMessage: "Too many!")
+        }
+        .padding()
     }
 }
 
