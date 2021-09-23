@@ -183,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				27D7B8A126FA26FD00DAA3A0 /* ImagePicker.swift */,
+				276D6D4026FD224200BDB0FA /* PullToRefresh.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,7 +193,6 @@
 			children = (
 				27D7B8A426FA5FE900DAA3A0 /* DynamicViewContent+Extensions.swift */,
 				276D6D3C26FD201C00BDB0FA /* NavigationModalPresentation.swift */,
-				276D6D4026FD224200BDB0FA /* PullToRefresh.swift */,
 			);
 			path = SwiftUISupport;
 			sourceTree = "<group>";

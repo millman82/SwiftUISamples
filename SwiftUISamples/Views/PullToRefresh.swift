@@ -77,3 +77,11 @@ private struct PullToRefresh: UIViewRepresentable {
         return Introspect.previousSibling(containing: UITableView.self, from: viewHost)
     }
 }
+
+@available(iOS, introduced: 13, obsoleted: 15)
+extension View {
+    func pullToRefresh(isRefreshing: Binding<Bool>, onRefresh: @escaping () -> Void) -> some View {
+        return overlay(PullToRefresh(isRefreshing: isRefreshing, onRefresh: onRefresh)
+                        .frame(width: 0, height: 0))
+    }
+}
