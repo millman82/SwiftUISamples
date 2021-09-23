@@ -21,6 +21,14 @@ enum ViewState: Equatable {
         return false
     }
     
+    var isUpdated: Bool {
+        if case .updated(_, _) = self {
+            return true
+        }
+        
+        return false
+    }
+    
     var isAlertState: Bool {
         switch self {
         case .error, .updated:

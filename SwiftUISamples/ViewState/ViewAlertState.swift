@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ViewAlertState: ViewModifier {
     @Binding var viewState: ViewState
+    var updatedAction: (() -> Void)?
     
     func body(content: Content) -> some View {
         return content
@@ -35,6 +36,10 @@ struct ViewAlertState: ViewModifier {
                 }
                 
                 return Alert(title: Text(alertTitle ?? ""), message: message, dismissButton: .default(Text("OK")) {
+                    if viewState.isUpdated {
+                        updatedAction?()
+                    }
+                    
                     viewState = .idle
                 })
             })
@@ -42,7 +47,7 @@ struct ViewAlertState: ViewModifier {
 }
 
 extension View {
-    func viewAlertState(viewState: Binding<ViewState>) -> some View {
-        self.modifier(ViewAlertState(viewState: viewState))
+    func viewAlertState(viewState: Binding<ViewState>, updatedAction: (() -> Void)? = nil) -> some View {
+        self.modifier(ViewAlertState(viewState: viewState, updatedAction: updatedAction))
     }
 }
