@@ -7,3 +7,7 @@
 */
 
 "Prompt" = "Enter 10 characters or less";
+
+// Permissions
+"CameraPermissionAlertTitle" = "Give app permissions?";
+"CameraPermissionAlertMessage" = "Needs permissions to your camera in order to take photos.";
