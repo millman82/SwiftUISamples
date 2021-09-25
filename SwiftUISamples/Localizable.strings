@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  SwiftUISamples
+
+  Created by Timothy Miller on 9/23/21.
+  
+*/
+
+"Prompt" = "Enter 10 characters or less";
