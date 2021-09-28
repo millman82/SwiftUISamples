@@ -83,6 +83,7 @@ struct ValidationSampleView: View {
 struct SearchBarSampleView: View {
     @State private var names = ["Tim", "Jon", "Will", "Chad", "Sara", "Steve", "Megan"]
     @State private var searchText = ""
+    @State private var isRefreshing = false
     
     private var filteredNames: [String] {
         if !searchText.isEmpty {
@@ -95,13 +96,26 @@ struct SearchBarSampleView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar(text: $searchText)
-                List {
+                let list = List {
                     ForEach(filteredNames, id: \.self) { name in
                         Text(name)
                     }
                 }
                 .listStyle(GroupedListStyle())
+                
+                if #available(iOS 15, *) {
+                    list
+                        .refreshable {
+                            print("Refreshing...")
+                        }
+                        .searchable(text: $searchText)
+                } else {
+                    SearchBar(text: $searchText)
+                    list
+                        .pullToRefresh(isRefreshing: $isRefreshing) {
+                            print("Refreshing...")
+                        }
+                }
             }
             .navigationTitle("Search")
         }
