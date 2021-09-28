@@ -83,10 +83,26 @@ struct ValidationSampleView: View {
 }
 
 struct SearchBarSampleView: View {
-    @State private var text = ""
+    @State private var names = ["Tim", "Jon", "Will", "Chad", "Sara", "Steve", "Megan"]
+    @State private var searchText = ""
+    
+    private var filteredNames: [String] {
+        if !searchText.isEmpty {
+            return names.filter { $0.localizedCaseInsensitiveContains(searchText) }
+        }
+        
+        return names
+    }
     
     var body: some View {
-        SearchBar(text: $text)
+        VStack {
+            SearchBar(text: $searchText)
+            List {
+                ForEach(filteredNames, id: \.self) { name in
+                    Text(name)
+                }
+            }
+        }
     }
 }
 
