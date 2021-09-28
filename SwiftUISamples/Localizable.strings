@@ -7,7 +7,12 @@
 */
 
 "Prompt" = "Enter 10 characters or less";
+"%@ OptionalFieldFormat" = "%@ (optional)";
 
 // Permissions
 "CameraPermissionAlertTitle" = "Give app permissions?";
 "CameraPermissionAlertMessage" = "Needs permissions to your camera in order to take photos.";
+
+// Image Selection
+"Name" = "Name";
+"Description" = "Description";

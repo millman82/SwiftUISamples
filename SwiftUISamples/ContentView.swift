@@ -35,13 +35,14 @@ struct ContentView: View {
                     Image(systemName: "1.circle")
                     Text("Validation")
                 }
+            
             SearchBarSampleView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
                 }
             
-        ImageSelectionSampleView()
+            ImageSelectionSampleView()
             .tabItem {
                 Image(systemName: "photo")
                 Text("Image Selection")
@@ -62,16 +63,16 @@ struct ValidationSampleView: View {
                         value.count < 11
 
                     }, validationMessage: "Too many!")
-                
+
                 HStack {
                     Spacer()
                     Button("Test Button", action: {})
                         .padding(EdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 24))
                         .background(Color.blue)
                         .foregroundColor(.white)
+                        .cornerRadius(8)
                     Spacer()
                 }
-                
             }
             .padding()
             .navigationTitle("Validation")
@@ -100,6 +101,7 @@ struct SearchBarSampleView: View {
                         Text(name)
                     }
                 }
+                .listStyle(GroupedListStyle())
             }
             .navigationTitle("Search")
         }
@@ -134,13 +136,18 @@ struct ImageSelectionSampleView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(height: 150)
                                 .padding(EdgeInsets(top: 0, leading: 45, bottom: 0, trailing: 45))
+                                .foregroundColor(.secondary)
                         }
                     }
                     Spacer()
                 }
                 .padding([.top, .bottom], 35)) {
-                    TextField("Image Name", text: $imageName)
-                    TextField("Image Description", text: $imageDescription)
+                    TextField("Name", text: $imageName)
+                    if #available(iOS 15, *) {
+                        TextField("\(String(localized: "Description")) OptionalFieldFormat", text: $imageDescription)
+                    } else {
+                        TextField("\("Description".localized()) OptionalFieldFormat", text: $imageDescription)
+                    }
                 }
             }
             .sheet(isPresented: $isImagePickerPresented) {
