@@ -54,31 +54,28 @@ struct ValidationSampleView: View {
     @State private var value = ""
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Prompt")
-            TextField("Prompt", text: $value)
-                .validated(isValid: {
-                    value.count < 11
+        NavigationView {
+            VStack(alignment: .leading) {
+                Text("Prompt")
+                TextField("Prompt", text: $value)
+                    .validated(isValid: {
+                        value.count < 11
 
-                }, validationMessage: "Too many!")
-            
-            HStack {
-                Spacer()
-                Button("Test Button", action: {})
-                    .padding(EdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 24))
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                Spacer()
+                    }, validationMessage: "Too many!")
+                
+                HStack {
+                    Spacer()
+                    Button("Test Button", action: {})
+                        .padding(EdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 24))
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                
             }
-            
+            .padding()
+            .navigationTitle("Validation")
         }
-        .padding()
-        
-//        List {
-//            ForEach(0..<20) { index in
-//                Text("Test")
-//            }
-//        }
     }
 }
 
@@ -95,13 +92,16 @@ struct SearchBarSampleView: View {
     }
     
     var body: some View {
-        VStack {
-            SearchBar(text: $searchText)
-            List {
-                ForEach(filteredNames, id: \.self) { name in
-                    Text(name)
+        NavigationView {
+            VStack {
+                SearchBar(text: $searchText)
+                List {
+                    ForEach(filteredNames, id: \.self) { name in
+                        Text(name)
+                    }
                 }
             }
+            .navigationTitle("Search")
         }
     }
 }
@@ -117,60 +117,63 @@ struct ImageSelectionSampleView: View {
     @State private var selectedImage: UIImage?
     
     var body: some View {
-        Form {
-            Section(header: HStack {
-                Spacer()
-                Button(action: selectImageAction) {
-                    if let image = selectedImage {
-                        Image(uiImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 150)
-                            .padding(EdgeInsets(top: 0, leading: 45, bottom: 0, trailing: 45))
-                    } else {
-                        Image(systemName: "photo.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 150)
-                            .padding(EdgeInsets(top: 0, leading: 45, bottom: 0, trailing: 45))
+        NavigationView {
+            Form {
+                Section(header: HStack {
+                    Spacer()
+                    Button(action: selectImageAction) {
+                        if let image = selectedImage {
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 150)
+                                .padding(EdgeInsets(top: 0, leading: 45, bottom: 0, trailing: 45))
+                        } else {
+                            Image(systemName: "photo.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 150)
+                                .padding(EdgeInsets(top: 0, leading: 45, bottom: 0, trailing: 45))
+                        }
                     }
+                    Spacer()
                 }
-                Spacer()
+                .padding([.top, .bottom], 35)) {
+                    TextField("Image Name", text: $imageName)
+                    TextField("Image Description", text: $imageDescription)
+                }
             }
-            .padding([.top, .bottom], 35)) {
-                TextField("Image Name", text: $imageName)
-                TextField("Image Description", text: $imageDescription)
+            .sheet(isPresented: $isImagePickerPresented) {
+                ImagePicker(sourceType: $imagePickerSourceType, allowsEditing: true, image: $selectedImage)
             }
-        }
-        .sheet(isPresented: $isImagePickerPresented) {
-            ImagePicker(sourceType: $imagePickerSourceType, allowsEditing: true, image: $selectedImage)
-        }
-        .actionSheet(isPresented: $isActionSheetPresented) {
-            ActionSheet(title: Text("Select Source"), message: nil, buttons: [
-                .default(Text("Take Photo")) {
-                    guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-                        return
-                    }
-                    
-                    imagePickerSourceType = .camera
-                    isImagePickerPresented.toggle()
-                },
-                .default(Text("Photo Library")) {
-                    guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
-                        return
-                    }
-                    
-                    imagePickerSourceType = .photoLibrary
-                    isImagePickerPresented.toggle()
-                },
-                .cancel()
-            ])
-        }
-        .alert(isPresented: $isPermissionAlertPresented) {
-            Alert(title: Text("CameraPermissionAlertTitle"), message: Text("CameraPermissionAlertMessage"),
-                  primaryButton: .default(Text("Yes")) {
-                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-            }, secondaryButton: .cancel(Text("No")))
+            .actionSheet(isPresented: $isActionSheetPresented) {
+                ActionSheet(title: Text("Select Source"), message: nil, buttons: [
+                    .default(Text("Take Photo")) {
+                        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+                            return
+                        }
+                        
+                        imagePickerSourceType = .camera
+                        isImagePickerPresented.toggle()
+                    },
+                    .default(Text("Photo Library")) {
+                        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
+                            return
+                        }
+                        
+                        imagePickerSourceType = .photoLibrary
+                        isImagePickerPresented.toggle()
+                    },
+                    .cancel()
+                ])
+            }
+            .alert(isPresented: $isPermissionAlertPresented) {
+                Alert(title: Text("CameraPermissionAlertTitle"), message: Text("CameraPermissionAlertMessage"),
+                      primaryButton: .default(Text("Yes")) {
+                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                }, secondaryButton: .cancel(Text("No")))
+            }
+            .navigationTitle("Image Selection")
         }
     }
     
