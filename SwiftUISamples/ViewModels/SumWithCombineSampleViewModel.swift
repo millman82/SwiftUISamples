@@ -7,7 +7,7 @@
 
 import Combine
 
-final class SumWithCombineViewModel: ObservableObject {
+final class SumWithCombineSampleViewModel: ObservableObject {
     @Published var firstNumber = ""
     @Published var secondNumber = ""
     @Published var sum = 0

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct SumWithCombineView: View {
-    @StateObject var viewModel: SumWithCombineViewModel = SumWithCombineViewModel()
+struct SumWithCombineSampleView: View {
+    @StateObject var viewModel: SumWithCombineSampleViewModel = SumWithCombineSampleViewModel()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -23,10 +23,10 @@ struct SumWithCombineView: View {
     }
 }
 
-struct SumWithCombineView_Previews: PreviewProvider {
+struct SumWithCombineSampleView_Previews: PreviewProvider {
     static var previews: some View {
-        SumWithCombineView()
+        SumWithCombineSampleView()
         
-        SumWithCombineView().preferredColorScheme(.dark)
+        SumWithCombineSampleView().preferredColorScheme(.dark)
     }
 }

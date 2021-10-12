@@ -47,7 +47,7 @@ struct ContentView: View {
                     Text("Image Selection")
                 }
             
-            SumWithCombineView()
+            SumWithCombineSampleView()
                 .tabItem {
                     Image(systemName: "plus")
                     Text("Sum with Combine")
