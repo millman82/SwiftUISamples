@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		272953EF27035F61006E475D /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272953EE27035F61006E475D /* String+Extensions.swift */; };
+		2737668427161F8400199816 /* SumWithCombineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2737668327161F8400199816 /* SumWithCombineViewModel.swift */; };
+		273766862716246200199816 /* SumWithCombineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273766852716246200199816 /* SumWithCombineView.swift */; };
+		273766882716258100199816 /* ImageSelectionSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273766872716258100199816 /* ImageSelectionSampleView.swift */; };
+		2737668A271626FD00199816 /* ValidationSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27376689271626FD00199816 /* ValidationSampleView.swift */; };
+		2737668C2716272C00199816 /* SearchBarSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2737668B2716272C00199816 /* SearchBarSampleView.swift */; };
 		2766921626E295FF00EF26EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2766921526E295FF00EF26EB /* AppDelegate.swift */; };
 		2766921826E295FF00EF26EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2766921726E295FF00EF26EB /* SceneDelegate.swift */; };
 		2766921A26E295FF00EF26EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2766921926E295FF00EF26EB /* ContentView.swift */; };
@@ -49,6 +54,11 @@
 
 /* Begin PBXFileReference section */
 		272953EE27035F61006E475D /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		2737668327161F8400199816 /* SumWithCombineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumWithCombineViewModel.swift; sourceTree = "<group>"; };
+		273766852716246200199816 /* SumWithCombineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumWithCombineView.swift; sourceTree = "<group>"; };
+		273766872716258100199816 /* ImageSelectionSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectionSampleView.swift; sourceTree = "<group>"; };
+		27376689271626FD00199816 /* ValidationSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationSampleView.swift; sourceTree = "<group>"; };
+		2737668B2716272C00199816 /* SearchBarSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarSampleView.swift; sourceTree = "<group>"; };
 		2766921226E295FF00EF26EB /* SwiftUISamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUISamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2766921526E295FF00EF26EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2766921726E295FF00EF26EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +120,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2737668227161F6900199816 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2737668327161F8400199816 /* SumWithCombineViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		2766920926E295FF00EF26EB = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +156,7 @@
 				2766921926E295FF00EF26EB /* ContentView.swift */,
 				272953ED27035F4E006E475D /* Extensions */,
 				2766924826E2A17500EF26EB /* ViewModifiers */,
+				2737668227161F6900199816 /* ViewModels */,
 				27D7B8A026FA26E700DAA3A0 /* Views */,
 				2766924B26EBE08F00EF26EB /* ViewState */,
 				27D7B8A326FA5FD800DAA3A0 /* SwiftUISupport */,
@@ -198,9 +217,13 @@
 		27D7B8A026FA26E700DAA3A0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				27376689271626FD00199816 /* ValidationSampleView.swift */,
+				273766872716258100199816 /* ImageSelectionSampleView.swift */,
+				273766852716246200199816 /* SumWithCombineView.swift */,
 				27D7B8A126FA26FD00DAA3A0 /* ImagePicker.swift */,
 				276D6D4026FD224200BDB0FA /* PullToRefresh.swift */,
 				276D6D4526FD271E00BDB0FA /* SearchBar.swift */,
+				2737668B2716272C00199816 /* SearchBarSampleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,13 +378,18 @@
 				2766921626E295FF00EF26EB /* AppDelegate.swift in Sources */,
 				276D6D4126FD224200BDB0FA /* PullToRefresh.swift in Sources */,
 				2766921826E295FF00EF26EB /* SceneDelegate.swift in Sources */,
+				273766882716258100199816 /* ImageSelectionSampleView.swift in Sources */,
 				276D6D3D26FD201C00BDB0FA /* NavigationModalPresentation.swift in Sources */,
 				2766924D26EBE09F00EF26EB /* ViewState.swift in Sources */,
+				2737668427161F8400199816 /* SumWithCombineViewModel.swift in Sources */,
 				27D7B8A226FA26FD00DAA3A0 /* ImagePicker.swift in Sources */,
+				2737668A271626FD00199816 /* ValidationSampleView.swift in Sources */,
+				2737668C2716272C00199816 /* SearchBarSampleView.swift in Sources */,
 				27D7B8A526FA5FE900DAA3A0 /* DynamicViewContent+Extensions.swift in Sources */,
 				272953EF27035F61006E475D /* String+Extensions.swift in Sources */,
 				2766925126EBE2B000EF26EB /* ViewLoadingState.swift in Sources */,
 				2766921A26E295FF00EF26EB /* ContentView.swift in Sources */,
+				273766862716246200199816 /* SumWithCombineView.swift in Sources */,
 				2766921D26E295FF00EF26EB /* SwiftUISamples.xcdatamodeld in Sources */,
 				2766924A26E2A1B200EF26EB /* ValidatedViewModifier.swift in Sources */,
 				2766924F26EBE16900EF26EB /* ViewAlertState.swift in Sources */,
