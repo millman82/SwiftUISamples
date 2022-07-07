@@ -17,7 +17,6 @@ struct ValidationSampleView: View {
                 TextField("Prompt", text: $value)
                     .validated(isValid: {
                         value.count < 11
-                        
                     }, validationMessage: "Too many!")
                 
                 HStack {

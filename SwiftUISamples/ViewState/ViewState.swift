@@ -37,4 +37,14 @@ enum ViewState: Equatable {
             return false
         }
     }
+    
+    static func == (lhs: ViewState, rhs: ViewState) -> Bool {
+        switch (lhs, rhs) {
+        case (.idle, .idle): return true
+        case (.loading, .loading): return true
+        case (.updated, .updated): return true
+        case (.error, .error): return true
+        default: return false
+        }
+    }
 }
