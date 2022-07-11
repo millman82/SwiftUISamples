@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272244BD287690FF00920B44 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272244BC287690FF00920B44 /* AppEnvironment.swift */; };
+		272244BF2876912300920B44 /* AppEnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272244BE2876912300920B44 /* AppEnvironmentKey.swift */; };
+		272244C128769ADC00920B44 /* InjectedExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272244C028769ADC00920B44 /* InjectedExamples.swift */; };
 		272953EF27035F61006E475D /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272953EE27035F61006E475D /* String+Extensions.swift */; };
 		2737668427161F8400199816 /* SumWithCombineSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2737668327161F8400199816 /* SumWithCombineSampleViewModel.swift */; };
 		273766862716246200199816 /* SumWithCombineSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273766852716246200199816 /* SumWithCombineSampleView.swift */; };
@@ -53,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		272244BC287690FF00920B44 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		272244BE2876912300920B44 /* AppEnvironmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironmentKey.swift; sourceTree = "<group>"; };
+		272244C028769ADC00920B44 /* InjectedExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedExamples.swift; sourceTree = "<group>"; };
 		272953EE27035F61006E475D /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		2737668327161F8400199816 /* SumWithCombineSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumWithCombineSampleViewModel.swift; sourceTree = "<group>"; };
 		273766852716246200199816 /* SumWithCombineSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumWithCombineSampleView.swift; sourceTree = "<group>"; };
@@ -112,6 +118,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		272244BB287690F000920B44 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				272244BC287690FF00920B44 /* AppEnvironment.swift */,
+				272244BE2876912300920B44 /* AppEnvironmentKey.swift */,
+				272244C028769ADC00920B44 /* InjectedExamples.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
 		272953ED27035F4E006E475D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +170,7 @@
 				2766921526E295FF00EF26EB /* AppDelegate.swift */,
 				2766921726E295FF00EF26EB /* SceneDelegate.swift */,
 				2766921926E295FF00EF26EB /* ContentView.swift */,
+				272244BB287690F000920B44 /* Environment */,
 				272953ED27035F4E006E475D /* Extensions */,
 				2766924826E2A17500EF26EB /* ViewModifiers */,
 				2737668227161F6900199816 /* ViewModels */,
@@ -376,9 +393,11 @@
 			files = (
 				276D6D4626FD271E00BDB0FA /* SearchBar.swift in Sources */,
 				2766921626E295FF00EF26EB /* AppDelegate.swift in Sources */,
+				272244BF2876912300920B44 /* AppEnvironmentKey.swift in Sources */,
 				276D6D4126FD224200BDB0FA /* PullToRefresh.swift in Sources */,
 				2766921826E295FF00EF26EB /* SceneDelegate.swift in Sources */,
 				273766882716258100199816 /* ImageSelectionSampleView.swift in Sources */,
+				272244BD287690FF00920B44 /* AppEnvironment.swift in Sources */,
 				276D6D3D26FD201C00BDB0FA /* NavigationModalPresentation.swift in Sources */,
 				2766924D26EBE09F00EF26EB /* ViewState.swift in Sources */,
 				2737668427161F8400199816 /* SumWithCombineSampleViewModel.swift in Sources */,
@@ -391,6 +410,7 @@
 				2766921A26E295FF00EF26EB /* ContentView.swift in Sources */,
 				273766862716246200199816 /* SumWithCombineSampleView.swift in Sources */,
 				2766921D26E295FF00EF26EB /* SwiftUISamples.xcdatamodeld in Sources */,
+				272244C128769ADC00920B44 /* InjectedExamples.swift in Sources */,
 				2766924A26E2A1B200EF26EB /* ValidatedViewModifier.swift in Sources */,
 				2766924F26EBE16900EF26EB /* ViewAlertState.swift in Sources */,
 			);

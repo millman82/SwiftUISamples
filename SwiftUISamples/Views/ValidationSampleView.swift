@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ValidationSampleView: View {
+    @Environment(\.sampleService) var sampleService
     @State private var value = ""
     
     var body: some View {
@@ -29,6 +30,7 @@ struct ValidationSampleView: View {
                     Spacer()
                 }
                 Spacer()
+
             }
             .padding()
             .navigationTitle("Validation")

@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SumWithCombineSampleView: View {
-    @StateObject var viewModel: SumWithCombineSampleViewModel = SumWithCombineSampleViewModel()
+    @Environment(\.appEnvironment) var appEnvironment
+
+    @StateObject var viewModel: SumWithCombineSampleViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -17,6 +19,7 @@ struct SumWithCombineSampleView: View {
             TextField("Second number", text: $viewModel.secondNumber)
                 .keyboardType(.numberPad)
             Text("Sum: \(viewModel.sum)")
+            Text("AppEnvironment: \(appEnvironment.rawValue)")
             Spacer()
         }
         .padding()
@@ -25,8 +28,11 @@ struct SumWithCombineSampleView: View {
 
 struct SumWithCombineSampleView_Previews: PreviewProvider {
     static var previews: some View {
-        SumWithCombineSampleView()
+        let sampleService = SampleServiceImpl(logger: LoggerImpl(appEnvironment: .dev))
+
+        SumWithCombineSampleView(viewModel: SumWithCombineSampleViewModel(sampleService: sampleService))
         
-        SumWithCombineSampleView().preferredColorScheme(.dark)
+        SumWithCombineSampleView(viewModel: SumWithCombineSampleViewModel(sampleService: sampleService))
+            .preferredColorScheme(.dark)
     }
 }

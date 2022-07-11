@@ -6,15 +6,21 @@
 //
 
 import Combine
+import SwiftUI
 
 final class SumWithCombineSampleViewModel: ObservableObject {
+    private let sampleService: SampleService
+
     @Published var firstNumber = ""
     @Published var secondNumber = ""
     @Published var sum = 0
     
     private var subscriptions = Set<AnyCancellable>()
     
-    init() {
+    init(sampleService: SampleService) {
+        print("initializing...")
+        self.sampleService = sampleService
+        
         initObservables()
     }
     
@@ -29,7 +35,8 @@ final class SumWithCombineSampleViewModel: ObservableObject {
 //                return firstNum + secondNum
 //            }
 //            .assign(to: &self.$sum)
-        
+
+
         // OPTION: 2
         Publishers.CombineLatest($firstNumber, $secondNumber)
             .sink(receiveValue: { (first, second) in
@@ -37,6 +44,8 @@ final class SumWithCombineSampleViewModel: ObservableObject {
                     self.sum = 0
                     return
                 }
+
+                self.sampleService.doSomething()
                 
                 self.sum = firstNum + secondNum
             })

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.logger) var logger
+    @Environment(\.sampleService) var sampleService
+
     init() {
         // Color Tab Bar manually. If we have a list or form the tab bar will
         // get the secondarySystemBackground color applied by default.
@@ -47,7 +50,7 @@ struct ContentView: View {
                     Text("Image Selection")
                 }
             
-            SumWithCombineSampleView()
+            SumWithCombineSampleView(viewModel: SumWithCombineSampleViewModel(sampleService: sampleService))
                 .tabItem {
                     Image(systemName: "plus")
                     Text("Sum with Combine")
